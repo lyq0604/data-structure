@@ -7,9 +7,9 @@ package 链表;
 public class 移除链表元素 {
 
     public ListNode removeElements(ListNode head, int val) {
-        ListNode vNode = new ListNode();
-        vNode.next = head;
-        ListNode cur = vNode;
+        ListNode pre = new ListNode();
+        pre.next = head;
+        ListNode cur = pre;
         while (cur.next != null) {
             if (cur.next.val == val) {
                 cur.next = cur.next.next;
@@ -17,7 +17,7 @@ public class 移除链表元素 {
                 cur = cur.next;
             }
         }
-        return vNode.next;
+        return pre.next;
     }
 
 }

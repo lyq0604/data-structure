@@ -7,15 +7,14 @@ package 链表;
 public class 反转链表 {
 
     public ListNode reverseList(ListNode head) {
-        if (head == null) return null;
-        ListNode pre = null;
-        while (head != null) {
+        ListNode pre = new ListNode();
+        while (head.next != null) {
             ListNode tmp = head.next;
             head.next = pre;
             pre = head;
             head = tmp;
         }
-        return pre;
+        return head;
     }
 
 }

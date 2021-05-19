@@ -15,7 +15,7 @@ public class 反转字符串II {
         char[] chars = s.toCharArray();
         // i表示每隔2k个字符的起点
         for (int i=0;i<chars.length;i+=2*k) {
-            //
+            // 剩余元素个数大于等于k个
             if (i+k<=s.length()) {
                 reverse(chars, i, i+k-1);
                 continue;
