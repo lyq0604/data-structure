@@ -14,12 +14,11 @@ public class 滑动窗口最大值 {
         int len = nums.length;
         if (len == 0) return nums;
         int[] arr = new int[len - k + 1];
-        // 单调递减队列
+        // 单调递减队列,且队列中无需保存窗口内的所有元素
         Deque<Integer> deque = new LinkedList<>();
         // 初始化
         for (int i=0;i<k;i++) {
             while (!deque.isEmpty() && nums[i] > deque.peekLast()) {
-                // 无需保留所有元素
                 deque.removeLast();
             }
             deque.offer(nums[i]);
@@ -31,7 +30,7 @@ public class 滑动窗口最大值 {
             if (nums[i-k] == deque.peekFirst()) {
                 deque.removeFirst();
             }
-            // 入队元素较大
+            // 删除单调队列中比即将入队元素小的元素
             while (!deque.isEmpty() && nums[i] > deque.peekLast()) {
                 // 无需保留所有元素
                 deque.removeLast();
